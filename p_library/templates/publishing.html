@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+<div class="container d-flex flex-column justify-content-between">
+    <h2>Список издательств и их книг.</h2>
+
+    <div class="flex-md-equal mt-5">
+        {% for pub in pubs %}
+            <div class="mb-5">
+                <p class="h4">Книги издательства "{{pub.name}}":</p>
+                <ul class="list-group md-auto">
+                {% for book in pub.book_set.all %}
+                    <li class="list-group-item">{{book.title}}</li>
+                {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+</div>
